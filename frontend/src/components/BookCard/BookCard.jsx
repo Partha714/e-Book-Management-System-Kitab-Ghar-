@@ -13,7 +13,7 @@ const BookCard = ({ data, favourite}) => {
   };
   const handleRemoveBook = async () => {
     const response = await API.put(
-        "http://localhost:1000/api/v1/remove-book-from-favourite",
+        "/remove-book-from-favourite",
         {},
         {headers}
     );
