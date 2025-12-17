@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import API from "../api";
 import {authActions} from "../Library/auth"
 import {useDispatch} from "react-redux"
 
@@ -28,8 +29,8 @@ const LogIn = () => {
         return;
       }
 
-      const response = await axios.post(
-        "http://localhost:1000/api/v1/sign-in",
+      const response = await API.post(
+        "/sign-in",
         Values
       );
 
