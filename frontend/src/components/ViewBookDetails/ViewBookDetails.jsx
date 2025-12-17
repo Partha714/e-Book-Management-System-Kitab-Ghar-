@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import API from "../api";
+import API from "../../api"
 
 // Icons
 import { GrLanguage } from "react-icons/gr";
@@ -39,8 +39,8 @@ const ViewBookDetails = () => {
 
   const handleFavourite = async () => {
     try {
-      const response = await axios.put(
-        "http://localhost:1000/api/v1/add-book-to-favourite",
+      const response = await API.put(
+        "/add-book-to-favourite",
         {},
         { headers }
       );
@@ -53,8 +53,8 @@ const ViewBookDetails = () => {
   // --- NEW: Handle Cart Function ---
   const handleCart = async () => {
     try {
-      const response = await axios.put(
-        "http://localhost:1000/api/v1/add-to-cart",
+      const response = await API.put(
+        "/add-to-cart",
         {},
         { headers }
       );
@@ -74,8 +74,8 @@ const ViewBookDetails = () => {
   if (!confirmDelete) return;
 
   try {
-    const response = await axios.delete(
-      `http://localhost:1000/api/v1/delete-book/${id}`,
+    const response = await API.delete(
+      `/delete-book/${id}`,
       { headers }
     );
     alert(response.data.message);
