@@ -2,6 +2,8 @@ import React from 'react'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import API from "../api";
+
 
 const SignUp = () => {
  const [Values, setValues] = useState({username:"", email:"", password:"", address:""});
@@ -19,8 +21,8 @@ const submit = async () => {
       return;
     }
 
-    const response = await axios.post(
-      "http://localhost:1000/api/v1/sign-up",
+    const response = await API.post(
+      "/sign-up",
       Values
     );
 
