@@ -1,4 +1,5 @@
 import axios from "axios";
+import API from "../../api"
 import React, { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 
@@ -16,8 +17,8 @@ const Settings = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:1000/api/v1/get-user-information",
+        const response = await API.get(
+          "/get-user-information",
           { headers }
         );
 
@@ -41,8 +42,8 @@ const Settings = () => {
   // 🔥 Update address
   const handleUpdate = async () => {
     try {
-      const response = await axios.put(
-        "http://localhost:1000/api/v1/update-user-address",
+      const response = await API.put(
+        "/update-user-address",
         value,
         { headers }
       );
