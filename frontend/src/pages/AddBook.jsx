@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import API from "../api";
+
 
 const AddBook = () => {
   const [data, setData] = useState({
@@ -22,8 +24,8 @@ const AddBook = () => {
 
   const submit = async () => {
     try {
-      const response = await axios.post(
-        "http://localhost:1000/api/v1/add-book",
+      const response = await API.post(
+        "/add-book",
         data,
         { headers }
       );
