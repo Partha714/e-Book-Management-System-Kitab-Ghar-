@@ -3,7 +3,8 @@ import { useEffect } from 'react'
 import axios from 'axios';
 import BookCard from '../BookCard/BookCard';
 import Loader from '../Loader/Loader';
-import API from "../api";
+import API from "../../api"
+
 
 const RecentlyAdded = () => {
     const [Data, setData] = useState();
