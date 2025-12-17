@@ -3,6 +3,7 @@ import Sidebar from '../components/Profile/Sidebar'
 import { Outlet } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import axios from 'axios'
+import API from "../api";
 import Loader from '../components/Loader/Loader'
 const Profile = () => {
   // FIXED: Changed state name to lowercase 'profile' to avoid conflict with Component name
@@ -16,7 +17,7 @@ const Profile = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await axios.get("http://localhost:1000/api/v1/get-user-information", { headers });
+        const response = await API.get("/get-user-information", { headers });
         
         // FIXED: Your logs showed data is directly in response.data
         setProfile(response.data);
