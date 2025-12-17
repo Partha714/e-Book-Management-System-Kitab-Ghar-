@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import API from "../api";
+
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
@@ -15,8 +17,8 @@ const Cart = () => {
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:1000/api/v1/get-cart-items",
+        const response = await API.get(
+          "/get-cart-items",
           { headers }
         );
         setCart(response.data.cart);
@@ -31,8 +33,8 @@ const Cart = () => {
   // 🔥 Remove from cart
   const handleRemoveFromCart = async (bookId) => {
     try {
-      await axios.put(
-        `http://localhost:1000/api/v1/remove-from-cart/${bookId}`,
+      await API.put(
+        `/remove-from-cart/${bookId}`,
         {},
         { headers }
       );
@@ -51,8 +53,8 @@ const Cart = () => {
   // ✅ PLACE ORDER (FINAL)
   const handlePlaceOrder = async () => {
     try {
-      await axios.post(
-        "http://localhost:1000/api/v1/place-order",
+      await API.post(
+        "/place-order",
         { order: cart },
         { headers }
       );
