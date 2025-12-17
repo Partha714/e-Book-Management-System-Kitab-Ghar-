@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import Loader from "../components/Loader/Loader";
+import API from "../api";
+
 
 const UpdateBook = () => {
   const { id } = useParams();
@@ -27,8 +29,8 @@ const UpdateBook = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:1000/api/v1/get-book-by-id/${id}`
+        const response = await API.get(
+          `/get-book-by-id/${id}`
         );
 
         setData({
@@ -74,8 +76,8 @@ const UpdateBook = () => {
     }
 
     try {
-      const response = await axios.put(
-        `http://localhost:1000/api/v1/update-book/${id}`,
+      const response = await API.put(
+        `/update-book/${id}`,
         data,
         { headers }
       );
