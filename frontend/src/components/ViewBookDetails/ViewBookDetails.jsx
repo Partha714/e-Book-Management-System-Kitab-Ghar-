@@ -22,7 +22,7 @@ const ViewBookDetails = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await API.get(`http://localhost:1000/api/v1/get-book-by-id/${id}`);
+        const response = await API.get(`/get-book-by-id/${id}`);
         setData(response.data.data);
       } catch (error) {
         console.error("Error fetching book data:", error);
