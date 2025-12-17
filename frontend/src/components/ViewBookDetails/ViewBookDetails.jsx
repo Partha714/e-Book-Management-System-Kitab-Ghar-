@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import API from "../api";
 
 // Icons
 import { GrLanguage } from "react-icons/gr";
@@ -21,7 +22,7 @@ const ViewBookDetails = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await axios.get(`http://localhost:1000/api/v1/get-book-by-id/${id}`);
+        const response = await API.get(`http://localhost:1000/api/v1/get-book-by-id/${id}`);
         setData(response.data.data);
       } catch (error) {
         console.error("Error fetching book data:", error);
