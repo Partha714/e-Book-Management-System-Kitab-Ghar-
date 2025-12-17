@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";  
+import API from "../api";
+
+
 
 const BookCard = ({ data, favourite}) => {
       const headers = {
@@ -9,7 +12,7 @@ const BookCard = ({ data, favourite}) => {
     bookid:data._id,
   };
   const handleRemoveBook = async () => {
-    const response = await axios.put(
+    const response = await API.put(
         "http://localhost:1000/api/v1/remove-book-from-favourite",
         {},
         {headers}
