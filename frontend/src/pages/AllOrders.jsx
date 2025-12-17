@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import Loader from "../components/Loader/Loader";
 import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import API from "../api";
+
 
 const AllOrders = () => {
   const [orders, setOrders] = useState(null);
@@ -17,8 +19,8 @@ const AllOrders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:1000/api/v1/get-all-orders",
+        const response = await API.get(
+          "/get-all-orders",
           { headers }
         );
         setOrders(response.data.data);
@@ -35,8 +37,8 @@ const AllOrders = () => {
     try {
       setLoadingId(orderId);
 
-      await axios.put(
-        `http://localhost:1000/api/v1/update-status/${orderId}`,
+      await API.put(
+        `/update-status/${orderId}`,
         { status },
         { headers }
       );
