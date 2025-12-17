@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import Hero from '../components/Home/Hero'
 import RecentlyAdded from '../components/Home/RecentlyAdded'
+import API from "../api";
+
 
 const Home = () => {
   return (
