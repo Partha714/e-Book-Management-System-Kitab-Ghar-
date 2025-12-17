@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import BookCard from "../BookCard/BookCard";
-import API from "../api";
+import API from "../../api"
 
 
 const Favourites = () => {
