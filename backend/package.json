@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",   <-- ADD THIS LINE
-    "dev": "nodemon app.js",  <-- OPTIONAL: Useful for local development
+    "start": "node app.js",   
+    "dev": "nodemon app.js",  
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
